@@ -1,25 +1,47 @@
-import logo from './logo.svg';
+import React, { Component } from 'react'
 import './App.css';
+import {
+    BrowserRouter as Router, 
+    Route, 
+    Switch,
+} from 'react-router-dom';
+// import Header from './components/Header.js';
+// import PrivateRoute from './components/PrivateRoute.js';
+// import Home from './Home/Home.js';
+// import SignUpPage from './AuthPages/SignUpPage.js';
+// import LoginPage from './AuthPages/LoginPage.js';
+import AdviceListPage from './AdviceListPage/AdviceListPage.js';
+// import { getUserFromLocalStorage, putUserInLocalStorage } from './local-storage-utils';
+// import FavoritesPage from './FavoritesPage/FavoritesPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+    // state = {
+    //   user: getUserFromLocalStorage()
+    // }
+
+    // handleUserChange = (user) => {
+    //   this.setState({ user })
+      
+    //   putUserInLocalStorage(user);
+    // }
+
+    // handleLogout = () => {
+    //   this.handleUserChange();
+    // }
+
+    render() {
+        return (
+            <div>
+                <Router>
+                    <Switch>
+                        <Route
+                            path="/search" 
+                            exact
+                            render={(routerProps) => <AdviceListPage/>}
+                          />
+                    </Switch>
+                </Router>
+            </div>
+        )
+    }
 }
-
-export default App;
